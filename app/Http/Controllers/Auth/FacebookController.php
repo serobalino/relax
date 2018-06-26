@@ -23,6 +23,6 @@ class FacebookController extends Controller{
      */
     public function handleProviderCallback(){
         $user = Socialite::driver('facebook')->user();
-        return ([$user]);
+        var_dump($user);
     }
 }

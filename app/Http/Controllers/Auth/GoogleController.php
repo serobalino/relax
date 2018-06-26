@@ -23,6 +23,6 @@ class GoogleController extends Controller{
      */
     public function handleProviderCallback(){
         $user = Socialite::driver('google')->user();
-        return ([$user]);
+        var_dump($user);
     }
 }
