@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{config('app.name')}} - @yield('titulo')</title>
     <meta name="csrf-token" content="{{csrf_token()}}">
-    <link href="{{mix('css/invitado.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/invitado.css')}}" rel="stylesheet" type="text/css">
 </head>
 <body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
 @yield('cuerpo')

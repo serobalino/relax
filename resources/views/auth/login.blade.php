@@ -1,7 +1,7 @@
 @extends('template.invitado')
 @section('titulo') Ingresar @endsection
 @section('cuerpo')
-    <div class="m-grid m-grid--hor m-grid--root m-page" id="invitado">
+    <div class="m-grid m-grid--hor m-grid--root m-page">
         <div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-grid--tablet-and-mobile m-grid--hor-tablet-and-mobile m-login m-login--1 m-login--signin">
             <div class="m-grid__item m-grid__item--order-tablet-and-mobile-2 m-login__aside">
                 <div class="m-stack m-stack--hor m-stack--desktop">

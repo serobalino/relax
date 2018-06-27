@@ -14,7 +14,7 @@
             height: auto;
         }
 
-        .jstree-icon {    
+        .jstree-icon {
             &.la {
                 font-size: 1.5rem;
             }
@@ -23,16 +23,16 @@
                 font-size: 1.2rem;
             }
         }
-    } 
+    }
 
     .jstree-open > .jstree-anchor > .fa-folder:before {
         margin-left: 2px;
-        content: "\f07c"; 
+        content: "\f07c";
     }
 
     .jstree-open > .jstree-anchor > .la-folder:before {
         margin-left: 2px;
-        content: "\f200"; 
+        content: "\f200";
     }
 
     .jstree-default.jstree-rtl .jstree-last {
@@ -52,43 +52,44 @@
             @include border-radius(array-get($m--border-radius, dropdown));
         }
 
-        
-            li {
+
+        li {
+            border: 0;
+
+            a {
+                padding: 0 10px;
                 border: 0;
+                line-height: 2.2em;
 
-                a { 
-                    padding: 0 10px;       
-                    border: 0;
-                    line-height: 2.2em;
-
-                    i {
-                        display: none;   
-                    }
-
-                    .vakata-contextmenu-sep {  
-                        display: none;  
-                    }
-
-                    span,
-                    ins {
-                        display: none;
-                        border: 0 !important;
-                    }
+                i {
+                    display: none;
                 }
-            }
 
-            .vakata-context-hover > a,
-            li a:hover {  
-                margin: 0;   
+                .vakata-contextmenu-sep {
+                    display: none;
+                }
 
-                .span,
-                .ins {
+                span,
+                ins {
+                    display: none;
                     border: 0 !important;
                 }
             }
+        }
+
+        .vakata-context-hover > a,
+        li a:hover {
+            margin: 0;
+
+            .span,
+            .ins {
+                border: 0 !important;
+            }
+        }
+
     }
 
-    .vakata-context .vakata-context-separator a,   
+    .vakata-context .vakata-context-separator a,
     .vakata-context-rtl .vakata-context-separator a {
         margin: 0;
         border: 0;
@@ -112,14 +113,14 @@
             color: get-color($skin, regular);
         }
 
-        .jstree-icon {   
+        .jstree-icon {
             color: get-color($skin, icon, '+');
         }
 
         .jstree-disabled {
             @include opacity(0.7);
 
-            .jstree-icon {   
+            .jstree-icon {
                 color: get-color($skin, icon, '+');
             }
         }
@@ -156,32 +157,32 @@
         @include shadow(get-shadow($skin));
         border: 0;
 
-            li {
-                a { 
-                    i {
-                    }
+        li {
+            a {
+                i {
+                }
 
-                    span,
-                    ins {
-                    }
+                span,
+                ins {
                 }
             }
+        }
 
-            .vakata-context-hover > a,
-            li a:hover {
-                background: get-color($skin, panel, '-');
-                color: get-color($skin, regular);
-                @include shadow(none);
+        .vakata-context-hover > a,
+        li a:hover {
+            background: get-color($skin, panel, '-');
+            color: get-color($skin, regular);
+            @include shadow(none);
 
-                .span,
-                .ins {
-                    border: 0 !important;
-                }
+            .span,
+            .ins {
+                border: 0 !important;
             }
-       
+        }
+
     }
 
-    .vakata-context .vakata-context-separator a,   
+    .vakata-context .vakata-context-separator a,
     .vakata-context-rtl .vakata-context-separator a {
         margin: 0;
         border: 0;
