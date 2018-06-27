@@ -31,5 +31,8 @@
         <button type="submit" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
             {{ __('Registrar') }}
         </button>
+        <a href="{{route('login')}}" class="btn btn-outline-focus m-btn m-btn--pill m-btn--custom">
+            Cancelar
+        </a>
     </div>
 </form>

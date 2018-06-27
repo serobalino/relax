@@ -1,4 +1,5 @@
 <div class="m-stack__item m-stack__item--center">
+    <small>Tambien puede registrarse con</small>
     <div class="m-login__account">
         <a href="{{route('log.linkedin')}}" class="btn btn-outline-brand btn-sm m-btn m-btn--icon">
             <span>
@@ -11,13 +12,6 @@
                 <i class="fa fa-google-plus"></i>
                 <span>Google</span>
             </span>
-        </a>
-        <br>
-        <span class="m-login__account-msg">
-            No tiene una cuenta?
-        </span>
-        <a href="{{route('register')}}" class="m-link m-link--focus m-login__account-link">
-            Regístrese
         </a>
     </div>
 </div>

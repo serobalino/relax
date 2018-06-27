@@ -17,13 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('login/google', 'Auth\GoogleController@redirectToProvider');
+Route::get('login/google', 'Auth\GoogleController@redirectToProvider')->name('log.google');
 Route::get('login/google/callback', 'Auth\GoogleController@handleProviderCallback');
 
 Route::get('login/facebook', 'Auth\FacebookController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\FacebookController@handleProviderCallback');
 
-Route::get('login/linkedin', 'Auth\LinkedinController@redirectToProvider');
+Route::get('login/linkedin', 'Auth\LinkedinController@redirectToProvider')->name('log.linkedin');
 Route::get('login/linkedin/callback', 'Auth\LinkedinController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');

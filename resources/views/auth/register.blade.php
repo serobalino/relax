@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                    @component('componentes.invitado.registro')
+                    @component('componentes.invitado.atras_registro')
                     @endcomponent
                 </div>
             </div>
