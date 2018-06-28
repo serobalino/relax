@@ -15,7 +15,16 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+
+Vue.component('pasos', require('./components/pasos'));
+
+
+Vue.component('paso1', require('./components/paso1'));
+Vue.component('paso2', require('./components/paso2'));
+Vue.component('paso3', require('./components/paso3'));
+Vue.component('v-r', require('./components/vr'));
+
+export let Bus = new Vue();
 
 const app = new Vue({
     el: '#app'
