@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 
 class GoogleController extends Controller{
@@ -23,6 +25,16 @@ class GoogleController extends Controller{
      */
     public function handleProviderCallback(){
         $user = Socialite::driver('google')->user();
-        dd($user);
+        $usuario    =   User::where('google',$user->getId())->orWhere('email',$user->getEmail())->first();
+        if(!$usuario)
+            $usuario            =   new User();
+
+            $usuario->name      =   $user->getName();
+            $usuario->google    =   $user->getId();
+            $usuario->avatar    =   $user->getAvatar();
+            $usuario->email     =   $user->getEmail();
+            $usuario->save();
+        Auth::login($usuario);
+        return redirect(route('home'));
     }
 }
