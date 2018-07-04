@@ -30,7 +30,7 @@ class LinkedinController extends Controller
         $usuario->avatar    =   $user->getAvatar();
         $usuario->email     =   $user->getEmail();
         $usuario->save();
-        Auth::login($usuario);
+        Auth::login($usuario,true);
         return redirect(route('home'));
     }
 }
