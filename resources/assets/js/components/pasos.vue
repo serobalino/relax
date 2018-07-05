@@ -1,9 +1,9 @@
 <template>
     <div>
-        <paso1 v-if="!e"></paso1>
-        <paso2 v-if="e && !s" :es="e"></paso2>
-        <paso3 v-if="e && s && vr===false"></paso3>
-        <v-r v-if="vr"></v-r>
+        <paso1 v-if="actual===1"></paso1>
+        <paso2 v-if="actual===2" :es="e"></paso2>
+        <paso3 v-if="actual===3"></paso3>
+        <v-r v-if="actual===4"></v-r>
     </div>
 </template>
 
@@ -15,16 +15,26 @@
             e:null,
             s:null,
             vr:false,
+            actual:1,
         }),
         mounted(){
             Bus.$on('set-estado',function(estado){
                 this.e=estado;
+                if(estado===null)
+                    this.actual=1;
+                else
+                    this.actual=2;
             }.bind(this));
             Bus.$on('set-escenario',function(escenario){
                 this.s=escenario;
+                if(escenario===null)
+                    this.actual=2;
+                else
+                    this.actual=3;
             }.bind(this));
             Bus.$on('set-vr',function(){
                 this.vr=true;
+                this.actual=4;
             }.bind(this));
         }
     }

@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="m-widget17__stats">
-                    <button type="button" class="btn m-btn--square  btn-primary btn-lg m-btn m-btn--custom btn-block" v-for="item in estados" v-on:click="ponerEstado(item)">{{item.estado}}</button>
+                    <button type="button" class="btn m-btn--square  btn-primary btn-lg m-btn m-btn--custom btn-block" v-for="item in estados" v-on:click="ponerEstado(item)">{{item.title}}</button>
                 </div>
             </div>
         </div>
@@ -27,17 +27,23 @@
     export default {
         name: "paso1",
         data: () => ({
-            estados:[
-                {"id":1,"estado":"Estado 1"},
-                {"id":2,"estado":"Estado 2"},
-                {"id":3,"estado":"Estado 3"},
-                {"id":4,"estado":"Estado 4"},
-                ]
+            estados:[],
         }),
         methods:{
             ponerEstado:function(item){
                 Bus.$emit('set-estado',item);
+            },
+            cargarEstados:function(){
+                axios({
+                    method: 'GET',
+                    url: location.origin+'/api/estados',
+                }).then((response) => {
+                    this.estados=response.data;
+                });
             }
+        },
+        created(){
+            this.cargarEstados();
         }
     }
 </script>

@@ -18,8 +18,8 @@
                 <div class="m-widget17__stats">
                     <div class="row">
                         <div class="col-md-4 item" v-for="item in escenarios" v-on:click="ponerEscena(item)">
-                            <img :src="item.img" alt="" class="img-fluid rounded-circle">
-                            <div class="text-center"><b>{{item.escenario}}</b><br><small>{{item.tiempo}} minutos</small>
+                            <img :src="item.picture" alt="" class="img-fluid rounded-circle">
+                            <div class="text-center"><b>{{item.title}}</b><br><small>{{item.time}} minutos</small>
                                 <br><br>
                             </div>
                         </div>
@@ -39,16 +39,7 @@
         name: "paso2",
         props:['es'],
         data: () => ({
-            escenarios:[
-                {"id":1,"escenario":"Escenario 1","tiempo":5,"img":"https://picsum.photos/300/300?image=1"},
-                {"id":2,"escenario":"Escenario 2","tiempo":5,"img":"https://picsum.photos/300/300?image=2"},
-                {"id":3,"escenario":"Escenario 3","tiempo":5,"img":"https://picsum.photos/300/300?image=3"},
-                {"id":4,"escenario":"Escenario 4","tiempo":5,"img":"https://picsum.photos/300/300?image=4"},
-                {"id":5,"escenario":"Escenario 5","tiempo":5,"img":"https://picsum.photos/300/300?image=5"},
-                {"id":6,"escenario":"Escenario 6","tiempo":5,"img":"https://picsum.photos/300/300?image=6"},
-                {"id":7,"escenario":"Escenario 7","tiempo":5,"img":"https://picsum.photos/300/300?image=7"},
-                {"id":8,"escenario":"Escenario 8","tiempo":5,"img":"https://picsum.photos/300/300?image=8"},
-            ]
+            escenarios:[],
         }),
         methods:{
             ponerEscena:function(item){
@@ -56,7 +47,18 @@
             },
             atras:function(){
                 Bus.$emit('set-estado',null);
+            },
+            cargarEscenarios:function(){
+                axios({
+                    method: 'GET',
+                    url: location.origin+'/api/escenarios/'+this.es.id,
+                }).then((response) => {
+                    this.escenarios=response.data;
+                });
             }
+        },
+        created(){
+            this.cargarEscenarios();
         }
     }
 </script>
