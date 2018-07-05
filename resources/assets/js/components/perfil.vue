@@ -40,6 +40,19 @@
                         <label >Ciudad actual</label>
                         <input class="form-control m-input" placeholder="Ciudad" type="text" v-model="lugar">
                     </div>
+                    <TypeAhead
+                            :src="rutaApi+'?q=:palabra'"
+                            v-model="si"
+                            :queryParamName="':palabra'"
+                            :onHit="seleccionar"
+                            :limit="5"
+                            :selectFirst="false"
+                            :getResponse="llamar"
+                            :minChars="3"
+                            :delayTime="0"
+                            :highlighting="listar"
+                            :placeholder="'Busque su ciudad'"
+                    />
                 </div>
                 <div class="m-portlet__foot m-portlet__foot--fit">
                     <div class="m-form__actions">
@@ -54,14 +67,27 @@
 </template>
 
 <script>
+    import TypeAhead from 'vue2-typeahead';
     export default {
         name: "perfil",
         data: () => ({
             perfil:[],
             mensaje:'Solo cambie la información nescesaria',
             lugar:'',
+            si:null,
+            rutaApi:location.origin+'/api/lugares',
         }),
+        components: {
+            TypeAhead
+        },
         methods:{
+            llamar: function (response) {
+                return response.data;
+            },
+            listar: function (item, vue) {
+                let html    =   item.name.replace(vue.query,`<b>${vue.query}</b>`);
+                return (`${html} - <span class="text-muted">${item.sname}</span>`);
+            },
             cargarPerfil:function(){
                 axios({
                     method: 'OPTIONS',
@@ -71,8 +97,24 @@
                     this.lugar=response.data.lugar.titulo_lu
                 });
             },
+            seleccionar: function (item, vue, index) {
+                console.log(item);
+            },
             enviar:function(){
-                console.log('enviado');
+                axios({
+                    method: 'POST',
+                    url: location.origin+'/profile',
+                    params:{
+                        'nombre':this.perfil.name,
+                        'email':this.perfil.email,
+                        'contrasena':this.perfil.psw,
+                        'contrasena_confirmation':this.perfil.psw2,
+                        'ciudad':this.lugar,
+                    }
+                }).then((response) => {
+                    this.perfil=response.data;
+                    this.lugar=response.data.lugar.titulo_lu
+                });
             }
         },
         created(){
