@@ -65,5 +65,4 @@ class UsuariosController extends Controller
             return (['val' => true, 'mensaje' => 'Se ha actualizado su informacion de perfil']);
         }
     }
-
 }
