@@ -28,3 +28,4 @@ Route::get('login/linkedin/callback', 'Auth\LinkedinController@handleProviderCal
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'UsuariosController@index')->name('profile');
+Route::get('/profile/record', 'UsuariosController@informacion');

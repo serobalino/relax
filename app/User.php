@@ -28,7 +28,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $with   = ['lugar'];
+
     public function sendPasswordResetNotification($token){
         $this->notify(new RecuperarCuenta($token));
+    }
+
+    public function lugar(){
+        return $this->belongsTo('App\Lugar','lugar','codigo_lu');
     }
 }
