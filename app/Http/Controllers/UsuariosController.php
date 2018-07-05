@@ -59,11 +59,10 @@ class UsuariosController extends Controller
 
             if($datos->contrasena)
                 $usuario->password  =   bcrypt($datos->contrasena);
-
-            $usuario->lugar     =   $datos->ciudad;
-
-
+            $usuario->lugar     =   app( 'App\Http\Controllers\LugaresController')->guardarPlaceId($datos->ciudad);
             $usuario->save();
+
+            return (['val' => true, 'mensaje' => 'Se ha actualizado su informacion de perfil']);
         }
     }
 

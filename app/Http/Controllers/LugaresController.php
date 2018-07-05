@@ -43,7 +43,7 @@ class LugaresController extends Controller
         return ($aux);
     }
 
-    public function recuperar($codigo){
+    private function recuperar($codigo){
         //consulta a la api de google
         $response = Consulta::get($this->url2,
             [
@@ -70,5 +70,10 @@ class LugaresController extends Controller
     public function parseRecuperar($codigo){
         //devuelve en formato rest el resultado de la consulta
         return ([$this->recuperar($codigo)]);
+    }
+
+    public function guardarPlaceId($codigo){
+        $this->recuperar($codigo);
+        return $codigo;
     }
 }
