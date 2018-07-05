@@ -49156,7 +49156,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49219,15 +49219,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "perfil",
     data: function data() {
         return {
-            estados: []
+            perfil: [],
+            mensaje: 'Solo cambie la información nescesaria',
+            lugar: ''
         };
     },
-    methods: {}
+    methods: {
+        cargarPerfil: function cargarPerfil() {
+            var _this = this;
+
+            axios({
+                method: 'OPTIONS',
+                url: location.origin + '/profile'
+            }).then(function (response) {
+                _this.perfil = response.data;
+                _this.lugar = response.data.lugar.titulo_lu;
+            });
+        },
+        enviar: function enviar() {
+            console.log('enviado');
+        }
+    },
+    created: function created() {
+        this.cargarPerfil();
+    }
 });
 
 /***/ }),
@@ -49238,111 +49261,218 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "col-md-6 animated fadeInRight" }, [
+    _c("div", { staticClass: "m-portlet m-portlet--tab" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "form",
+        {
+          staticClass: "m-form m-form--fit m-form--label-align-right",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.enviar($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "m-portlet__body" }, [
+            _c(
+              "div",
+              { staticClass: "form-group m-form__group m--margin-top-10" },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "alert m-alert m-alert--default",
+                    attrs: { role: "alert" }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.mensaje) +
+                        "\n                    "
+                    )
+                  ]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _vm.perfil.avatar
+              ? _c("div", { staticClass: "text-center" }, [
+                  _c("img", {
+                    staticClass: "img-fluid rounded-circle",
+                    staticStyle: { "max-height": "100px" },
+                    attrs: { src: _vm.perfil.avatar, alt: "" }
+                  })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Nombre")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.name,
+                    expression: "perfil.name"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Nombre", type: "text" },
+                domProps: { value: _vm.perfil.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "name", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Correo electrónico")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.email,
+                    expression: "perfil.email"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Email", type: "email" },
+                domProps: { value: _vm.perfil.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "email", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Contraseña")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.psw,
+                    expression: "perfil.psw"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Contraseña", type: "password" },
+                domProps: { value: _vm.perfil.psw },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "psw", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Confirmar")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.psw2,
+                    expression: "perfil.psw2"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Confirmar", type: "password" },
+                domProps: { value: _vm.perfil.psw2 },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "psw2", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Ciudad actual")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.lugar,
+                    expression: "lugar"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Ciudad", type: "text" },
+                domProps: { value: _vm.lugar },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.lugar = $event.target.value
+                  }
+                }
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _vm._m(1)
+        ]
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-md-6 animated fadeInRight" }, [
-      _c("div", { staticClass: "m-portlet m-portlet--tab" }, [
-        _c("div", { staticClass: "m-portlet__head" }, [
-          _c("div", { staticClass: "m-portlet__head-caption" }, [
-            _c("div", { staticClass: "m-portlet__head-title" }, [
-              _c("h3", { staticClass: "m-portlet__head-text" }, [
-                _vm._v(
-                  "\n                        Información Básica\n                    "
-                )
-              ])
-            ])
+    return _c("div", { staticClass: "m-portlet__head" }, [
+      _c("div", { staticClass: "m-portlet__head-caption" }, [
+        _c("div", { staticClass: "m-portlet__head-title" }, [
+          _c("h3", { staticClass: "m-portlet__head-text" }, [
+            _vm._v(
+              "\n                        Información Básica\n                    "
+            )
           ])
-        ]),
-        _vm._v(" "),
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-portlet__foot m-portlet__foot--fit" }, [
+      _c("div", { staticClass: "m-form__actions" }, [
         _c(
-          "form",
-          { staticClass: "m-form m-form--fit m-form--label-align-right" },
-          [
-            _c("div", { staticClass: "m-portlet__body" }, [
-              _c(
-                "div",
-                { staticClass: "form-group m-form__group m--margin-top-10" },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "alert m-alert m-alert--default",
-                      attrs: { role: "alert" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Solo cambie la información nescesaria\n                    "
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Nombre")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Nombre", type: "text" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Correo electrónico")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Email", type: "email" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Contraseña")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Contraseña", type: "password" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Confirmar")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Confirmar", type: "password" }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Ciudad actual")]),
-                _vm._v(" "),
-                _c("input", {
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Ciudad", type: "text" }
-                })
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "m-portlet__foot m-portlet__foot--fit" }, [
-              _c("div", { staticClass: "m-form__actions" }, [
-                _c(
-                  "button",
-                  { staticClass: "btn btn-primary", attrs: { type: "reset" } },
-                  [
-                    _vm._v(
-                      "\n                        Actualizar\n                    "
-                    )
-                  ]
-                )
-              ])
-            ])
-          ]
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+          [_vm._v("\n                        Actualizar\n                    ")]
         )
       ])
     ])
