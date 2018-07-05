@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('/estados','EstadosController');
 Route::resource('/escenarios','EscenariosController');
+
+Route::get('lugares','LugaresController@googleMapsPlaces');
+Route::get('lugares/{codigo}','LugaresController@parseRecuperar');

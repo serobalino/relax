@@ -27,5 +27,8 @@ Route::get('login/linkedin', 'Auth\LinkedinController@redirectToProvider')->name
 Route::get('login/linkedin/callback', 'Auth\LinkedinController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/profile', 'UsuariosController@index')->name('profile');
-Route::get('/profile/record', 'UsuariosController@informacion');
+Route::options('/profile', 'UsuariosController@informacion');
+
+Route::get('/profile/record', 'UsuariosController@historial');
