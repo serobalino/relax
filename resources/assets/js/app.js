@@ -25,6 +25,8 @@ Vue.component('paso2', require('./components/paso2'));
 Vue.component('paso3', require('./components/paso3'));
 Vue.component('v-r', require('./components/vr'));
 
+Vue.component('prueba', require('./components/prueba'));
+
 
 export let Bus = new Vue();
 
