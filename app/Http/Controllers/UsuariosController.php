@@ -52,10 +52,11 @@ class UsuariosController extends Controller
             $usuario            =   Auth::user();
             $usuario->name      =   $datos->nombre;
 
-            if($usuario->email!==$datos->email && User::where('email',$datos->email)->count()===0)
-                $usuario->email     =   $datos->email;
-            else
-                return (['val' => false, 'mensaje' => 'El correo electrónico ya esta en uso']);
+            if($usuario->email!==$datos->email)
+                if( User::where('email',$datos->email)->count()===0)
+                    $usuario->email     =   $datos->email;
+                else
+                    return (['val' => false, 'mensaje' => 'El correo electrónico ya esta en uso']);
 
             if($datos->contrasena)
                 $usuario->password  =   bcrypt($datos->contrasena);

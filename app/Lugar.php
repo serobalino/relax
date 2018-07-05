@@ -10,4 +10,9 @@ class Lugar extends Model
     protected $primaryKey   =       'codigo_lu';
     public $incrementing    =       false;
     public $timestamps      =       false;
+
+    protected $casts        =   [
+        'lat_lu'    =>  'double',
+        'lng_lu'    =>  'double'
+    ];
 }

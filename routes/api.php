@@ -21,4 +21,6 @@ Route::resource('/estados','EstadosController');
 Route::resource('/escenarios','EscenariosController');
 
 Route::get('lugares','LugaresController@googleMapsPlaces');
+Route::get('lugares/guardados','LugaresController@index');
 Route::get('lugares/{codigo}','LugaresController@parseRecuperar');
+

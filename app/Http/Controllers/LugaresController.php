@@ -14,6 +14,10 @@ class LugaresController extends Controller
     //url para recuperar un lugar con el id
     private $url2   =   "https://maps.googleapis.com/maps/api/place/details/json";
 
+    public function index(){
+        return Lugar::all();
+    }
+
     public function googleMapsPlaces(Request $datos){
         //consulta sin SSL
         Consulta::verifyPeer(false);

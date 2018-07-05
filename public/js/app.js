@@ -48600,7 +48600,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -48678,19 +48678,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: "perfil",
     data: function data() {
         return {
-            perfil: [],
+            perfil: { lugar: {}, psw: '', psw2: '' },
             mensaje: 'Solo cambie la información nescesaria',
-            lugar: '',
-            si: null,
             rutaApi: location.origin + '/api/lugares'
         };
     },
@@ -48703,7 +48698,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         listar: function listar(item, vue) {
             var html = item.name.replace(vue.query, '<b>' + vue.query + '</b>');
-            return html + ' - <span class="text-muted">' + item.sname + '</span>';
+            return html + ' - <span class="text-muted">' + item.name2 + '</span>';
         },
         cargarPerfil: function cargarPerfil() {
             var _this = this;
@@ -48713,11 +48708,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 url: location.origin + '/profile'
             }).then(function (response) {
                 _this.perfil = response.data;
-                _this.lugar = response.data.lugar.titulo_lu;
+                if (!response.data.lugar) _this.perfil.lugar = { titulo_lu: '' };
             });
         },
         seleccionar: function seleccionar(item, vue, index) {
-            console.log(item);
+            this.perfil.lugar.codigo_lu = item.id;
         },
         enviar: function enviar() {
             var _this2 = this;
@@ -48730,11 +48725,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     'email': this.perfil.email,
                     'contrasena': this.perfil.psw,
                     'contrasena_confirmation': this.perfil.psw2,
-                    'ciudad': this.lugar
+                    'ciudad': this.perfil.lugar.codigo_lu
                 }
             }).then(function (response) {
-                _this2.perfil = response.data;
-                _this2.lugar = response.data.lugar.titulo_lu;
+                _this2.mensaje = response.data.mensaje;
             });
         }
     },
@@ -50018,7 +50012,7 @@ var render = function() {
           expression: "query"
         }
       ],
-      staticClass: "form-control type-ahead-select taller",
+      staticClass: "form-control m-input type-ahead-select taller",
       attrs: {
         type: "text",
         placeholder: _vm.placeholder,
@@ -50209,195 +50203,164 @@ var render = function() {
           }
         },
         [
-          _c(
-            "div",
-            { staticClass: "m-portlet__body" },
-            [
-              _c(
-                "div",
-                { staticClass: "form-group m-form__group m--margin-top-10" },
-                [
-                  _c(
-                    "div",
-                    {
-                      staticClass: "alert m-alert m-alert--default",
-                      attrs: { role: "alert" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.mensaje) +
-                          "\n                    "
-                      )
-                    ]
-                  )
-                ]
-              ),
-              _vm._v(" "),
-              _vm.perfil.avatar
-                ? _c("div", { staticClass: "text-center" }, [
-                    _c("img", {
-                      staticClass: "img-fluid rounded-circle",
-                      staticStyle: { "max-height": "100px" },
-                      attrs: { src: _vm.perfil.avatar, alt: "" }
-                    })
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Nombre")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.perfil.name,
-                      expression: "perfil.name"
-                    }
-                  ],
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Nombre", type: "text" },
-                  domProps: { value: _vm.perfil.name },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.perfil, "name", $event.target.value)
-                    }
-                  }
+          _c("div", { staticClass: "m-portlet__body" }, [
+            _c(
+              "div",
+              { staticClass: "form-group m-form__group m--margin-top-10" },
+              [
+                _c("div", {
+                  staticClass: "alert m-alert m-alert--default",
+                  attrs: { role: "alert" },
+                  domProps: { innerHTML: _vm._s(_vm.mensaje) }
                 })
-              ]),
+              ]
+            ),
+            _vm._v(" "),
+            _vm.perfil.avatar
+              ? _c("div", { staticClass: "text-center" }, [
+                  _c("img", {
+                    staticClass: "img-fluid rounded-circle",
+                    staticStyle: { "max-height": "100px" },
+                    attrs: { src: _vm.perfil.avatar, alt: "" }
+                  })
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Nombre")]),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Correo electrónico")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.perfil.email,
-                      expression: "perfil.email"
-                    }
-                  ],
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Email", type: "email" },
-                  domProps: { value: _vm.perfil.email },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.perfil, "email", $event.target.value)
-                    }
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.name,
+                    expression: "perfil.name"
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Contraseña")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.perfil.psw,
-                      expression: "perfil.psw"
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Nombre", type: "text" },
+                domProps: { value: _vm.perfil.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
                     }
-                  ],
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Contraseña", type: "password" },
-                  domProps: { value: _vm.perfil.psw },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.perfil, "psw", $event.target.value)
-                    }
+                    _vm.$set(_vm.perfil, "name", $event.target.value)
                   }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Confirmar")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.perfil.psw2,
-                      expression: "perfil.psw2"
-                    }
-                  ],
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Confirmar", type: "password" },
-                  domProps: { value: _vm.perfil.psw2 },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.perfil, "psw2", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "form-group m-form__group" }, [
-                _c("label", [_vm._v("Ciudad actual")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.lugar,
-                      expression: "lugar"
-                    }
-                  ],
-                  staticClass: "form-control m-input",
-                  attrs: { placeholder: "Ciudad", type: "text" },
-                  domProps: { value: _vm.lugar },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.lugar = $event.target.value
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _c("TypeAhead", {
-                attrs: {
-                  src: _vm.rutaApi + "?q=:palabra",
-                  queryParamName: ":palabra",
-                  onHit: _vm.seleccionar,
-                  limit: 5,
-                  selectFirst: false,
-                  getResponse: _vm.llamar,
-                  minChars: 3,
-                  delayTime: 0,
-                  highlighting: _vm.listar,
-                  placeholder: "Busque su ciudad"
-                },
-                model: {
-                  value: _vm.si,
-                  callback: function($$v) {
-                    _vm.si = $$v
-                  },
-                  expression: "si"
                 }
               })
-            ],
-            1
-          ),
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Correo electrónico")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.email,
+                    expression: "perfil.email"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Email", type: "email" },
+                domProps: { value: _vm.perfil.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "email", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Contraseña")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.psw,
+                    expression: "perfil.psw"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Contraseña", type: "password" },
+                domProps: { value: _vm.perfil.psw },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "psw", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-group m-form__group" }, [
+              _c("label", [_vm._v("Confirmar")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.perfil.psw2,
+                    expression: "perfil.psw2"
+                  }
+                ],
+                staticClass: "form-control m-input",
+                attrs: { placeholder: "Confirmar", type: "password" },
+                domProps: { value: _vm.perfil.psw2 },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.perfil, "psw2", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group m-form__group" },
+              [
+                _c("label", [_vm._v("Ciudad actual")]),
+                _vm._v(" "),
+                _c("TypeAhead", {
+                  attrs: {
+                    src: _vm.rutaApi + "?q=:palabra",
+                    queryParamName: ":palabra",
+                    onHit: _vm.seleccionar,
+                    limit: 3,
+                    selectFirst: false,
+                    getResponse: _vm.llamar,
+                    minChars: 3,
+                    delayTime: 0,
+                    highlighting: _vm.listar,
+                    placeholder: "Busque su ciudad"
+                  },
+                  model: {
+                    value: _vm.perfil.lugar.titulo_lu,
+                    callback: function($$v) {
+                      _vm.$set(_vm.perfil.lugar, "titulo_lu", $$v)
+                    },
+                    expression: "perfil.lugar.titulo_lu"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
           _vm._v(" "),
           _vm._m(1)
         ]
