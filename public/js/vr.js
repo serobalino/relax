@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 116);
+/******/ 	return __webpack_require__(__webpack_require__.s = 111);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -255,29 +255,29 @@
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(7)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(7)))
 
 /***/ }),
 
-/***/ 116:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(117);
+module.exports = __webpack_require__(112);
 
 
 /***/ }),
 
-/***/ 117:
+/***/ 112:
 /***/ (function(module, exports, __webpack_require__) {
 
 try {
-    __webpack_require__(118);
-    __webpack_require__(119);
+    __webpack_require__(113);
+    __webpack_require__(114);
 } catch (e) {}
 
 /***/ }),
 
-/***/ 118:
+/***/ 113:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {var require;var require;(function(f){if(true){module.exports=f()}else if(typeof define==="function"&&define.amd){define([],f)}else{var g;if(typeof window!=="undefined"){g=window}else if(typeof global!=="undefined"){g=global}else if(typeof self!=="undefined"){g=self}else{g=this}g.AFRAME = f()}})(function(){var define,module,exports;return (function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return require(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(_dereq_,module,exports){
@@ -79585,11 +79585,11 @@ module.exports = getWakeLock();
 });
 //# sourceMappingURL=aframe-master.js.map
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(9).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(9).setImmediate))
 
 /***/ }),
 
-/***/ 119:
+/***/ 114:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
@@ -103978,7 +103978,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory){
 
 /***/ }),
 
-/***/ 4:
+/***/ 2:
 /***/ (function(module, exports) {
 
 var g;
@@ -104264,7 +104264,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
                          (typeof global !== "undefined" && global.clearImmediate) ||
                          (this && this.clearImmediate);
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ })
 

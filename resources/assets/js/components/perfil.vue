@@ -95,6 +95,7 @@
             },
             seleccionar: function (item, vue, index) {
                 this.perfil.lugar.codigo_lu=item.id;
+                this.perfil.lugar.titulo_lu=item.name;
             },
             enviar:function(){
                 axios({

@@ -37,7 +37,7 @@ class LugaresController extends Controller
             foreach ($response->body->predictions as $item){
                     $a['id']    =   $item->place_id;
                     $a['name']  =   $item->structured_formatting->main_text;
-                    $a['name2'] =   $item->structured_formatting->secondary_text;
+                    $a['name2'] =   @$item->structured_formatting->secondary_text;
                     $a['geo']   =   $item->terms;
                     $a['lvl']   =   $item->types;
                     $a['code']  =   false;
