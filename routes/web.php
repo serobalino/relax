@@ -31,6 +31,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'UsuariosController@index')->name('profile');
 Route::options('/profile', 'UsuariosController@informacion');
 Route::post('/profile', 'UsuariosController@actualizar');
+Route::get('/profile/record', 'UsuariosController@historial');
 
 Route::get('/test', function(){
     return view('prueba');
