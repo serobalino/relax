@@ -42,6 +42,7 @@ class RegistroNuevo extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->greeting('Hola ')
                     ->line('Bienveni@ '.$this->datos->name)
                     ->line('Gracias por usar nuestra aplicaccion')
                     ->line('Buen día');
