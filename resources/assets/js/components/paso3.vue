@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="m-widget17__stats text-center">
-                    <img src="https://cdn4.iconfinder.com/data/icons/virtual-reality/100/oculus-512.png" class="rounded">
+                    <img :src="imagen" class="rounded">
                     <h3>Ponte comodo, relajate y disfruta de tu viaje!</h3>
                     <h4>Presiona <b>Empezar</b> cuando estes listo.</h4>
                     <button type="button" class="btn m-btn--square  btn-secondary m-btn--wide btn-block" v-on:click="siguiente">
@@ -39,6 +39,11 @@
             e:[],
             s:[],
         }),
+        computed:{
+            imagen:function(){
+                return location.origin+'/images/vr.png'
+            }
+        },
         methods:{
             siguiente:function(){
                 Bus.$emit('set-vr');

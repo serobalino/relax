@@ -1,15 +1,45 @@
 <template>
-    <a-scene>
-        <a-camera position="0 0 4"></a-camera>
-        <a-sky></a-sky>
-        <a-entity id="object-container" position="0 1.6 -2" scale=".4 .4 .4"></a-entity>
-        <a-light type="ambient" intensity="0.7" color="#ffffff"></a-light>
-        <a-light intensity="3" color="#00ffff" position="-5.72 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#ff0000" alongpath="path:10,10,-10 -20,10,-10 10,0,-10; closed:true; dur:12000"></a-light>
-        <a-light intensity="5" color="#ff0000" position="8.60 6.65 0.80" animation__color="property:color; dir:alternate; dur:2000; easing:easeInOutSine; loop:true; to:#0000ff" alongpath="path:-2,-2,5 2,-1,5 0,-1,5; closed:true; dur:3000;"></a-light>
-    </a-scene>
+    <div class="m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force animated fadeIn">
+        <div class="m-portlet__head">
+            <div class="m-portlet__head-caption">
+                <div class="m-portlet__head-title">
+                    <h3 class="m-portlet__head-text">Prueba</h3>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__body">
+            <div class="m-widget17">
+                <div class="m-widget17__visual m-widget17__visual--chart m-portlet-fit--top m-portlet-fit--sides">
+                    <div class="m-widget17__chart" style="height:20px;">
+                        <div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
+                        </div>
+                    </div>
+                </div>
+                <div class="m-widget17__stats">
+                    <a-scene>
+                        <a-videosphere rotation="0 180 0" src="#video"
+                                       play-on-window-click
+                                       play-on-vrdisplayactivate-or-enter-vr>
+                        </a-videosphere>
+
+                        <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
+                        </a-camera>
+                        <a-assets>
+                            <video id="video" style="display:none"
+                                   autoplay loop crossorigin="anonymous" playsinline webkit-playsinline>
+                                <source type="video/mp4"
+                                        src="http://relax.local/videos/montañarusa.mp4" />
+                            </video>
+                        </a-assets>
+                    </a-scene>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
+    import 'aframe';
     export default {
         name: "prueba"
     }

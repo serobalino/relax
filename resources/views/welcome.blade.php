@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{asset('css/invitado.css')}}" rel="stylesheet" type="text/css">
         <title>Relax</title>
         <style>
             html, body {
@@ -75,6 +76,13 @@
             <div class="content">
                 <div class="title m-b-md">
                     <img src="{{asset('images/logo.svg')}}" alt="{{config('app.name')}} LOGO" style="height: 200px;max-height: 200px">
+                    @auth
+                    @else
+                        <br>
+                        <a href="#asd" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+                            Probar
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>
