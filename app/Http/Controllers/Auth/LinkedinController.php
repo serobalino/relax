@@ -22,8 +22,9 @@ class LinkedinController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function handleProviderCallback(){
-        $user = Socialite::driver('linkedin')->user();
+        $user       =   Socialite::driver('linkedin')->user();
         $usuario    =   User::where('facebook',$user->getId())->orWhere('email',$user->getEmail())->first();
+        $a          =   false;
         if(!$usuario){
             $usuario            =   new User();
             $a                  =   true;

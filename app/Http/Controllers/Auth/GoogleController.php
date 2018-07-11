@@ -27,8 +27,9 @@ class GoogleController extends Controller{
      * @return \Illuminate\Http\Response
      */
     public function handleProviderCallback(){
-        $user = Socialite::driver('google')->user();
+        $user       =   Socialite::driver('google')->user();
         $usuario    =   User::where('google',$user->getId())->orWhere('email',$user->getEmail())->first();
+        $a          =   false;
         if(!$usuario){
             $usuario            =   new User();
             $a                  =   true;
