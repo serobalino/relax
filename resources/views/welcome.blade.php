@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <script src="{{ mix('js/vr.js') }}" defer></script>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -79,7 +78,7 @@
                     @auth
                     @else
                         <br>
-                        <a href="#asd" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
+                        <a href="{{route('prueba')}}" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">
                             Probar
                         </a>
                     @endauth

@@ -9,26 +9,19 @@
         </div>
         <div class="m-portlet__body">
             <div class="m-widget17">
-                <div class="m-widget17__visual m-widget17__visual--chart m-portlet-fit--top m-portlet-fit--sides">
-                    <div class="m-widget17__chart" style="height:20px;">
-                        <div style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;" class="chartjs-size-monitor">
-                        </div>
-                    </div>
-                </div>
                 <div class="m-widget17__stats">
-                    <a-scene>
+                    <a-scene class="aframebox" embedded>
                         <a-videosphere rotation="0 180 0" src="#video"
                                        play-on-window-click
                                        play-on-vrdisplayactivate-or-enter-vr>
                         </a-videosphere>
-
                         <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
                         </a-camera>
                         <a-assets>
                             <video id="video" style="display:none"
-                                   autoplay loop crossorigin="anonymous" playsinline webkit-playsinline>
+                                   autoplay loop crossorigin="anonymous" playsinline webkit-playsinline preload="auto">
                                 <source type="video/mp4"
-                                        src="http://relax.local/videos/montañarusa.mp4" />
+                                        src="https://ucarecdn.com/bcece0a8-86ce-460e-856b-40dac4875f15/" />
                             </video>
                         </a-assets>
                     </a-scene>
@@ -39,12 +32,24 @@
 </template>
 
 <script>
+    Vue.config.ignoredElements = [
+              'a-scene',
+              'a-videosphere',
+              'a-camera',
+              'a-assets'
+           ];
     import 'aframe';
     export default {
         name: "prueba"
     }
 </script>
 
-<style scoped>
-
+<style>
+    .aframebox {
+        height: 500px;
+        width: 100%;
+    }
+    .a-enter-vr{
+        display: block !important;
+    }
 </style>

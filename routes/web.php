@@ -35,4 +35,4 @@ Route::get('/profile/record', 'UsuariosController@historial');
 
 Route::get('/test', function(){
     return view('prueba');
-});
+})->name('prueba');
