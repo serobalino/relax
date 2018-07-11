@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Notifications\RegistroNuevo;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -63,6 +65,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        Notification::send($data, new RegistroNuevo($data));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
