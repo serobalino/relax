@@ -38,7 +38,7 @@ class LinkedinController extends Controller
         $usuario->save();
 
         if($a)
-            Notification::send($usuario, new RegistroNuevo($usuario));
+            Notification::send($usuario, new RegistroNuevo());
 
         Auth::login($usuario,true);
         return redirect(route('home'));

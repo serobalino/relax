@@ -11,15 +11,14 @@ class RegistroNuevo extends Notification
 {
     use Queueable;
 
-    private $datos;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($datos)
+    public function __construct()
     {
-        $this->datos=$datos;
+        //
     }
 
     /**
@@ -43,7 +42,7 @@ class RegistroNuevo extends Notification
     {
         return (new MailMessage)
                     ->greeting('Hola ')
-                    ->line('Bienveni@ '.$this->datos->name)
+                    ->line('Bienveni@ '.$notifiable->name)
                     ->line('Gracias por usar nuestra aplicaccion')
                     ->line('Buen día');
     }
