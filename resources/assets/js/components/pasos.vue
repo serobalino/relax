@@ -3,7 +3,7 @@
         <paso1 v-if="actual===1"></paso1>
         <paso2 v-if="actual===2" :es="e"></paso2>
         <paso3 v-if="actual===3"></paso3>
-        <v-r v-if="actual===4"></v-r>
+        <v-r v-if="actual===4" :es="e" :ec="s"></v-r>
     </div>
 </template>
 

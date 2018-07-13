@@ -50564,7 +50564,9 @@ var render = function() {
       _vm._v(" "),
       _vm.actual === 3 ? _c("paso3") : _vm._e(),
       _vm._v(" "),
-      _vm.actual === 4 ? _c("v-r") : _vm._e()
+      _vm.actual === 4
+        ? _c("v-r", { attrs: { es: _vm.e, ec: _vm.s } })
+        : _vm._e()
     ],
     1
   )
@@ -51493,7 +51495,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -51504,6 +51506,59 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aframe__ = __webpack_require__(114);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_aframe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_aframe__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app__ = __webpack_require__(6);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -51520,8 +51575,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
+Vue.config.ignoredElements = ['a-scene', 'a-videosphere', 'a-camera', 'a-assets'];
+
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "vr"
+    name: "vr",
+    data: function data() {
+        return {
+            cargando: 1,
+            video: 'https://ucarecdn.com/bcece0a8-86ce-460e-856b-40dac4875f15'
+
+        };
+    },
+    props: ['es', 'ec'],
+    methods: {
+        cargar: function cargar() {
+            var _this = this;
+
+            axios({
+                method: 'POST',
+                url: location.origin + location.pathname,
+                params: {
+                    'scene': this.ec.id,
+                    'state': this.es.id
+                }
+            }).then(function (response) {
+                if (response.data.val) {
+                    _this.video = response.data.url;
+                    _this.cargando = 2;
+                } else {
+                    _this.cargando = 3;
+                }
+            });
+        },
+        regresar: function regresar() {
+            __WEBPACK_IMPORTED_MODULE_1__app__["Bus"].$emit('set-escenario', null);
+            __WEBPACK_IMPORTED_MODULE_1__app__["Bus"].$emit('set-estado', null);
+        }
+    },
+    created: function created() {
+        this.cargar();
+    }
 });
 
 /***/ }),
@@ -51532,37 +51626,177 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm.cargando === 1
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force animated fadeIn"
+          },
+          [_vm._m(0)]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.cargando === 2
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force animated fadeIn"
+          },
+          [
+            _c("div", { staticClass: "m-portlet__head" }, [
+              _c("div", { staticClass: "m-portlet__head-caption" }, [
+                _c("div", { staticClass: "m-portlet__head-title" }, [
+                  _c("h3", { staticClass: "m-portlet__head-text" }, [
+                    _vm._v(_vm._s(_vm.ec.title))
+                  ])
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "m-portlet__body" }, [
+              _c("div", { staticClass: "m-widget17" }, [
+                _c(
+                  "div",
+                  { staticClass: "m-widget17__stats" },
+                  [
+                    _c(
+                      "a-scene",
+                      { staticClass: "aframebox", attrs: { embedded: "" } },
+                      [
+                        _c("a-videosphere", {
+                          attrs: {
+                            rotation: "0 180 0",
+                            src: "#video",
+                            "play-on-window-click": "",
+                            "play-on-vrdisplayactivate-or-enter-vr": ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("a-camera", {
+                          attrs: {
+                            "user-height": "0",
+                            "wasd-controls-enabled": "false",
+                            "arrow-key-rotation": ""
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("a-assets", [
+                          _c(
+                            "video",
+                            {
+                              staticStyle: { display: "none" },
+                              attrs: {
+                                id: "video",
+                                autoplay: "",
+                                loop: "",
+                                crossorigin: "anonymous",
+                                playsinline: "",
+                                "webkit-playsinline": "",
+                                preload: "auto"
+                              }
+                            },
+                            [
+                              _c("source", {
+                                attrs: { type: "video/mp4", src: _vm.video }
+                              })
+                            ]
+                          )
+                        ])
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn m-btn--square  btn-warning m-btn--wide",
+                  attrs: { type: "button" },
+                  on: { click: _vm.regresar }
+                },
+                [_vm._v("\n                Regresar\n            ")]
+              )
+            ])
+          ]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.cargando === 3,
+            expression: "cargando===3"
+          }
+        ],
+        staticClass:
+          "m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force animated fadeIn"
+      },
+      [
+        _c("div", { staticClass: "m-portlet__body" }, [
+          _vm._m(1),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn m-btn--square  btn-warning m-btn--wide",
+              attrs: { type: "button" },
+              on: { click: _vm.regresar }
+            },
+            [_vm._v("\n                Regresar\n            ")]
+          )
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force animated fadeIn"
-      },
-      [
-        _c("div", { staticClass: "m-portlet__body" }, [
-          _c("div", { staticClass: "m-widget17" }, [
-            _c("div", { staticClass: "m-widget17__stats" }, [
-              _c("div", { staticClass: "text-center" }, [
-                _c("br"),
-                _c("br"),
-                _vm._v(" "),
-                _c("h2", [
-                  _vm._v("Cargando "),
-                  _c("i", { staticClass: "fa fa-circle-o-notch fa-spin fa-fw" })
-                ])
-              ])
+    return _c("div", { staticClass: "m-portlet__body" }, [
+      _c("div", { staticClass: "m-widget17" }, [
+        _c("div", { staticClass: "m-widget17__stats" }, [
+          _c("div", { staticClass: "text-center" }, [
+            _c("br"),
+            _c("br"),
+            _vm._v(" "),
+            _c("h2", [
+              _vm._v("Cargando "),
+              _c("i", { staticClass: "fa fa-circle-o-notch fa-spin fa-fw" })
             ])
           ])
         ])
-      ]
-    )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "m-widget17" }, [
+      _c("div", { staticClass: "m-widget17__stats" }, [
+        _c("div", { staticClass: "text-center text-danger" }, [
+          _c("br"),
+          _c("br"),
+          _vm._v(" "),
+          _c("h2", [
+            _vm._v("Ocurrio un error vuelva a intentar "),
+            _c("i", { staticClass: "fa fa-frown fa-fw" })
+          ])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true

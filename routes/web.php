@@ -27,11 +27,14 @@ Route::get('login/linkedin', 'Auth\LinkedinController@redirectToProvider')->name
 Route::get('login/linkedin/callback', 'Auth\LinkedinController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home','HistorialController@guardar');
 
 Route::get('/profile', 'UsuariosController@index')->name('profile');
 Route::options('/profile', 'UsuariosController@informacion');
 Route::post('/profile', 'UsuariosController@actualizar');
 Route::get('/profile/record', 'UsuariosController@historial');
+
+
 
 Route::get('/test', function(){
     return view('prueba');
