@@ -24,7 +24,7 @@ class HistorialController extends Controller
      * y deben pertenecer a un ID valido registrado previamente
      * posteriormete crea un nuevo registro en la tabla @Historial
      * y busca en el disco el video que tenga la ID de ecena seleccionada
-     * devuelve la URL para que puede vizualizar si no existe devuelve el video de ID =1
+     * devuelve la URL para que puede vizualizar si no existe devuelve el video de ID = aleatorio entre 1 y 11
     **/
     public function guardar(Request $datos){
         $validacion = Validator::make($datos->all(), [
@@ -44,7 +44,8 @@ class HistorialController extends Controller
             $historia->save();
             $dir    =   Storage::disk('public')->url($datos->scene.'.mp4');
             if(!$dir){
-                $dir    =   Storage::disk('public')->url('1.mp4');
+                $escena =   rand (1,11);
+                $dir    =   Storage::disk('public')->url("$escena.mp4");
             }
             return (['val' => true, 'mensaje' => 'Se cargo completamente', 'url' => $dir ]);
         }
