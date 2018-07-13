@@ -11,6 +11,10 @@ class PruebaController extends Controller
         $this->middleware('guest');
     }
 
+    /**
+     * recibe el parametro por URL si no hay parametro setea una variable de session acumulale si se acumula mas de 3 veces
+     * manda la vista de que ha usado la version de prueba
+    **/
     public function prueba($parametro=null){
         if(session('parametro') && $parametro>0)
             session(['parametro' => session('parametro')+1]);
