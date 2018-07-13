@@ -1,4 +1,4 @@
-<p align="center"><img src="/serobalino/relax/blob/master/resources/assets/imagenes/fondo.jpg?raw=true"></p>
+<p align="center"><img src="http://relax-ntp.esy.es/images/logo.svg"></p>
 
 ## Acerca Relax
 
