@@ -38,8 +38,8 @@ class HistorialController extends Controller
             return (['val' => false, 'mensaje' => $mensaje, 'errores' => $validacion->errors()->all()]);
         }else{
             $historia           =   new Historial();
-            $historia->id_es    =   $datos->scene;
-            $historia->id_ec    =   $datos->state;
+            $historia->id_es    =   $datos->state;
+            $historia->id_ec    =   $datos->scene;
             $historia->id_us    =   Auth::user()->id;
             $historia->save();
             $dir    =   Storage::disk('public')->url($datos->scene.'.mp4');
