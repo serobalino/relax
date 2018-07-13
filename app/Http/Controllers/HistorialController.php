@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Jenssegers\Date\Date;
 
 class HistorialController extends Controller
 {
@@ -37,5 +38,22 @@ class HistorialController extends Controller
             }
             return (['val' => true, 'mensaje' => 'Se cargo completamente', 'url' => $dir ]);
         }
+    }
+
+    public function historial(){
+        $lista  = Historial::with('escenario')->with('estado')->where('id_us',Auth::user()->id)->get();
+
+        $aux    =   [];
+
+        foreach ($lista as $item){
+            $a['scene']         =       $item->escenario['titulo_ec'];
+            $a['state']         =       $item->estado['titulo_es'];
+            $a['date']          =       $item->fecha_hi;
+            $a['date_parse']    =       Date::createFromFormat('Y-m-d H:i:s',$item->fecha_hi)->diffForHumans();
+
+            $aux[]=$a;
+        }
+
+        return array_reverse($aux);
     }
 }

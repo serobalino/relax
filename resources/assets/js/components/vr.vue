@@ -92,7 +92,10 @@
                 }).then((response) => {
                     if(response.data.val){
                         this.video=response.data.url;
-                        this.cargando=2;
+                        let vm = this;
+                        setTimeout(function() {
+                            vm.cargando=2;
+                        }, 4000);
                     }else{
                         this.cargando=3;
                     }
@@ -103,12 +106,19 @@
                 Bus.$emit('set-estado',null);
             }
         },
-        created(){
+        mounted(){
             this.cargar();
         }
     }
 </script>
 
-<style scoped>
+<style>
+    .aframebox {
+        height: 500px;
+        width: 100%;
+    }
+    .a-enter-vr{
+        display: block !important;
+    }
 
 </style>
