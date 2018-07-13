@@ -131242,7 +131242,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.aframebox {\n    height: 500px;\n    width: 100%;\n}\n.a-enter-vr{\n    display: block !important;\n}\n\n", ""]);
+exports.push([module.i, "\n.aframebox {\n    height: 500px;\n    width: 100%;\n}\n", ""]);
 
 // exports
 

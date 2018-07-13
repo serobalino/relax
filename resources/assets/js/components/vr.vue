@@ -117,8 +117,4 @@
         height: 500px;
         width: 100%;
     }
-    .a-enter-vr{
-        display: block !important;
-    }
-
 </style>
