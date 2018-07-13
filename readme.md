@@ -1,4 +1,4 @@
-<p align="center"><img src="./resources/imagesnes/logo.svg"></p>
+<p align="center"><img src="/serobalino/relax/blob/master/resources/assets/imagenes/fondo.jpg?raw=true"></p>
 
 ## Acerca Relax
 
