@@ -64,11 +64,5 @@
 </script>
 
 <style scoped>
-    .item{
-        cursor: pointer;
-    }
-    .item:hover{
-        background: #6a4df6;
-        color:white;
-    }
+
 </style>

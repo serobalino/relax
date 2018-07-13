@@ -17552,6 +17552,15 @@ body.swal2-no-backdrop > .swal2-shown.swal2-bottom-right {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a4df6', endColorstr='#6cc7f6',GradientType=0 );
 }
 
+.item {
+  cursor: pointer;
+}
+
+.item:hover {
+  background: #6a4df6;
+  color: white;
+}
+
 /**
 $m--root-font: (
     size: (

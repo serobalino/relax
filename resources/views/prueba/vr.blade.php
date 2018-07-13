@@ -1,10 +1,7 @@
 @extends('template.usuario')
-@section('titulo') Perfil @endsection
+@section('titulo') VR @endsection
 @section('cuerpo')
     <div class="container">
-        <div class="row">
-            <historial></historial>
-            <perfil></perfil>
-        </div>
+        <prueba ruta="{{route('register')}}"></prueba>
     </div>
 @endsection

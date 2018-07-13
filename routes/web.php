@@ -36,6 +36,4 @@ Route::get('/profile/record', 'HistorialController@historial');
 
 
 
-Route::get('/test', function(){
-    return view('prueba');
-})->name('prueba');
+Route::get('/test/{parametro?}','PruebaController@prueba')->name('prueba');

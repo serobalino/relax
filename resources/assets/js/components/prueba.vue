@@ -3,7 +3,7 @@
         <div class="m-portlet__head">
             <div class="m-portlet__head-caption">
                 <div class="m-portlet__head-title">
-                    <h3 class="m-portlet__head-text">Prueba</h3>
+                    <h3 class="m-portlet__head-text">Conducir</h3>
                 </div>
             </div>
         </div>
@@ -25,6 +25,12 @@
                             </video>
                         </a-assets>
                     </a-scene>
+                    <br><br>
+                    <div class="form-row text-center">
+                        <div class="col-12">
+                            <a :href="ruta" class="btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air">Registrar</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,7 +46,8 @@
            ];
     import 'aframe';
     export default {
-        name: "prueba"
+        name: "prueba",
+        props:['ruta'],
     }
 </script>
 
@@ -48,8 +55,5 @@
     .aframebox {
         height: 500px;
         width: 100%;
-    }
-    .a-enter-vr{
-        display: block !important;
     }
 </style>

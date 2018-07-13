@@ -6,3 +6,10 @@
   background: linear-gradient(to bottom, #6a4df6 0%,#6cc7f6 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6a4df6', endColorstr='#6cc7f6',GradientType=0 );
 }
+.item{
+  cursor: pointer;
+}
+.item:hover{
+  background: #6a4df6;
+  color:white;
+}

@@ -130255,7 +130255,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.item[data-v-a21d1304]{\n    cursor: pointer;\n}\n.item[data-v-a21d1304]:hover{\n    background: #6a4df6;\n    color:white;\n}\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -131002,7 +131002,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.aframebox {\n    height: 500px;\n    width: 100%;\n}\n.a-enter-vr{\n    display: block !important;\n}\n", ""]);
+exports.push([module.i, "\n.aframebox {\n    height: 500px;\n    width: 100%;\n}\n", ""]);
 
 // exports
 
@@ -131048,11 +131048,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 Vue.config.ignoredElements = ['a-scene', 'a-videosphere', 'a-camera', 'a-assets'];
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "prueba"
+    name: "prueba",
+    props: ['ruta']
 });
 
 /***/ }),
@@ -131127,7 +131134,24 @@ var render = function() {
                   ])
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _c("br"),
+              _vm._v(" "),
+              _c("div", { staticClass: "form-row text-center" }, [
+                _c("div", { staticClass: "col-12" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass:
+                        "btn btn-focus m-btn m-btn--pill m-btn--custom m-btn--air",
+                      attrs: { href: _vm.ruta }
+                    },
+                    [_vm._v("Registrar")]
+                  )
+                ])
+              ])
             ],
             1
           )
@@ -131144,7 +131168,9 @@ var staticRenderFns = [
     return _c("div", { staticClass: "m-portlet__head" }, [
       _c("div", { staticClass: "m-portlet__head-caption" }, [
         _c("div", { staticClass: "m-portlet__head-title" }, [
-          _c("h3", { staticClass: "m-portlet__head-text" }, [_vm._v("Prueba")])
+          _c("h3", { staticClass: "m-portlet__head-text" }, [
+            _vm._v("Conducir")
+          ])
         ])
       ])
     ])

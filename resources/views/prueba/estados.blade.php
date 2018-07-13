@@ -1,8 +1,8 @@
 @extends('template.usuario')
-@section('titulo') Perfil @endsection
+@section('titulo') Estados @endsection
 @section('cuerpo')
     <div class="container">
-        <div class="row">
+        <div>
             <div class="m-portlet m-portlet--bordered-semi m-portlet--widget-fit m-portlet--full-height m-portlet--skin-light  m-portlet--rounded-force animated fadeIn">
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="m-widget17__stats">
-                            <a type="button" class="btn m-btn--square  btn-primary btn-lg m-btn m-btn--custom btn-block">Muy Feliz</a>
+                            <a  href="{{route('prueba',2)}}" class="btn m-btn--square  btn-primary btn-lg m-btn m-btn--custom btn-block">Muy Feliz</a>
                         </div>
                     </div>
                 </div>
