@@ -97,6 +97,9 @@
                 this.perfil.lugar.codigo_lu=item.id;
                 this.perfil.lugar.titulo_lu=item.name;
             },
+            /**
+             * Actualizar la informacion de usuario
+             * **/
             enviar:function(){
                 axios({
                     method: 'POST',

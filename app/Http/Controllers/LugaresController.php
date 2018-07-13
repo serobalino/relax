@@ -14,10 +14,17 @@ class LugaresController extends Controller
     //url para recuperar un lugar con el id
     private $url2   =   "https://maps.googleapis.com/maps/api/place/details/json";
 
+    /**
+     * Retorna todos los registros del modelo Lugares
+    **/
     public function index(){
         return Lugar::all();
     }
 
+    /**
+     * Hace una consulta a la API de google places con la informacion recibida en $datos @q
+     * la cual verifica que tenga resultados y parsea la informacion en un array simple
+     **/
     public function googleMapsPlaces(Request $datos){
         //consulta sin SSL
         Consulta::verifyPeer(false);
@@ -47,6 +54,12 @@ class LugaresController extends Controller
         return ($aux);
     }
 
+
+    /**
+     * Recupera el ID registrado en la Base de datos con la informacion de Google Places
+     * y guarda en la base de datos
+     *
+    **/
     private function recuperar($codigo){
         //consulta a la api de google
         $response = Consulta::get($this->url2,
@@ -71,11 +84,18 @@ class LugaresController extends Controller
         }
         return ($response->body->result);
     }
+
+    /**
+     * Convierte en array la informacion de recuperar
+    **/
     public function parseRecuperar($codigo){
         //devuelve en formato rest el resultado de la consulta
         return ([$this->recuperar($codigo)]);
     }
 
+    /**
+     * Llama la funcion para guardar un Lugar
+    **/
     public function guardarPlaceId($codigo){
         $this->recuperar($codigo);
         return $codigo;

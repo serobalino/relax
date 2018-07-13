@@ -127658,7 +127658,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -127743,6 +127743,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     methods: {
+        /**
+         * Carga la informacion por metodo GET al backend
+         * **/
         cargarHistorial: function cargarHistorial() {
             var _this = this;
 
@@ -127754,6 +127757,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     },
+    /**
+     * Llama a la funcion cargar apenas se creee el componenete
+     * **/
     created: function created() {
         this.cargarHistorial();
     }
@@ -127913,7 +127919,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -128028,6 +128034,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.perfil.lugar.codigo_lu = item.id;
             this.perfil.lugar.titulo_lu = item.name;
         },
+        /**
+         * Actualizar la informacion de usuario
+         * **/
         enviar: function enviar() {
             var _this2 = this;
 
@@ -129809,7 +129818,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -129843,14 +129852,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     mounted: function mounted() {
+        /**
+         * Evento que SETEA un estado el cual funciona para setear variable actual
+         * **/
         __WEBPACK_IMPORTED_MODULE_0__app__["Bus"].$on('set-estado', function (estado) {
             this.e = estado;
             if (estado === null) this.actual = 1;else this.actual = 2;
         }.bind(this));
+        /**
+         * Event que setea un escenario
+         * **/
         __WEBPACK_IMPORTED_MODULE_0__app__["Bus"].$on('set-escenario', function (escenario) {
             this.s = escenario;
             if (escenario === null) this.actual = 2;else this.actual = 3;
         }.bind(this));
+        /**
+         * Evento que activa el componenete de A FRAME
+         * **/
         __WEBPACK_IMPORTED_MODULE_0__app__["Bus"].$on('set-vr', function () {
             this.vr = true;
             this.actual = 4;
@@ -129978,7 +129996,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -130024,6 +130042,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         };
     },
     methods: {
+        /**
+         * evento que setea un estado
+         * **/
         ponerEstado: function ponerEstado(item) {
             __WEBPACK_IMPORTED_MODULE_0__app__["Bus"].$emit('set-estado', item);
         },

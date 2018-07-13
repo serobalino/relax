@@ -37,6 +37,9 @@
             historial:[],
         }),
         methods:{
+            /**
+             * Carga la informacion por metodo GET al backend
+             * **/
             cargarHistorial:function(){
                 axios({
                     method: 'GET',
@@ -46,6 +49,9 @@
                 });
             }
         },
+        /**
+         * Llama a la funcion cargar apenas se creee el componenete
+         * **/
         created(){
             this.cargarHistorial();
         }

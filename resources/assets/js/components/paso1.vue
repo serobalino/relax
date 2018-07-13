@@ -30,6 +30,9 @@
             estados:[],
         }),
         methods:{
+            /**
+             * evento que setea un estado
+             * **/
             ponerEstado:function(item){
                 Bus.$emit('set-estado',item);
             },

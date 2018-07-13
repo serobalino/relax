@@ -25,6 +25,11 @@ class UsuariosController extends Controller
         return Auth::user();
     }
 
+    /**
+     * valida que los campos minimos para actualizar la informacion de un usuario llegue
+     * valida que el email si no es del mismo usuario no exista previamente en la base de datos
+     * y llama a la funcion para guardar un lugar de el controlador de lugares
+    **/
     public function actualizar(Request $datos){
         $validacion = Validator::make($datos->all(), [
             'nombre'        =>  'required',

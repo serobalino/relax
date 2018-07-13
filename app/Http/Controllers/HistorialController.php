@@ -11,11 +11,21 @@ use Jenssegers\Date\Date;
 
 class HistorialController extends Controller
 {
+    /**
+     * esta clase solo funciona si el usuario esta autenticado
+     *
+    **/
     public function __construct()
     {
         $this->middleware('auth');
     }
-
+    /**
+     * valida que llegue dos campos @scene y @state que deben ser los IDs de escenarios y estados que elegio el usuario
+     * y deben pertenecer a un ID valido registrado previamente
+     * posteriormete crea un nuevo registro en la tabla @Historial
+     * y busca en el disco el video que tenga la ID de ecena seleccionada
+     * devuelve la URL para que puede vizualizar si no existe devuelve el video de ID =1
+    **/
     public function guardar(Request $datos){
         $validacion = Validator::make($datos->all(), [
             'scene'        =>  'required|exists:escenarios,id_ec',
@@ -40,6 +50,16 @@ class HistorialController extends Controller
         }
     }
 
+    /**
+     * lista el @Historial de un usuario logiado
+     * con la relacion escenarios
+     * y estado
+     *
+     * depues la informacion es parceada para que la fecha salga en formato de tiempo pasado y no en fecha simple
+     *
+     * regresa el array invertido para que aparezca el registro ultimo primero
+     *
+    **/
     public function historial(){
         $lista  = Historial::with('escenario')->with('estado')->where('id_us',Auth::user()->id)->get();
 

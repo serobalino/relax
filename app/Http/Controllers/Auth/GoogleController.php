@@ -22,10 +22,13 @@ class GoogleController extends Controller{
     }
 
     /**
-     * Obtain the user information from Google.
-     *
-     * @return \Illuminate\Http\Response
-     */
+     * @Socialite usa el driver de linkedin
+     * el cual devuelve la informacion del usuario
+     * verifica que la ID del usuario exista si existe solo actualiza la informacion si no existe crea un nuevo registro
+     * y envia un email de bienvenida
+     * y logea al usuario
+     * al final retorna una redireccion a la pagina principal
+     **/
     public function handleProviderCallback(){
         $user       =   Socialite::driver('google')->user();
         $usuario    =   User::where('google',$user->getId())->orWhere('email',$user->getEmail())->first();
