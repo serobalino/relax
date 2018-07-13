@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="m-widget17__stats">
-                            <a  href="{{route('prueba',2)}}" class="btn m-btn--square  btn-primary btn-lg m-btn m-btn--custom btn-block">Muy Feliz</a>
+                            <a  href="{{route('prueba',2)}}" class="btn m-btn--square  btn-primary btn-lg m-btn m-btn--custom btn-block">Muy Felíz</a>
                         </div>
                     </div>
                 </div>

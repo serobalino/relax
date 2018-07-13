@@ -7,7 +7,7 @@
                 <div class="m-portlet__head">
                     <div class="m-portlet__head-caption">
                         <div class="m-portlet__head-title">
-                            <h3 class="m-portlet__head-text">Elige el escenario que quieras visitar! - Estado <b>Muy Feliz</b></h3>
+                            <h3 class="m-portlet__head-text">Elige el escenario que quieras visitar! - Estado <b>Muy Felíz</b></h3>
                         </div>
                     </div>
                 </div>
@@ -21,13 +21,11 @@
                         </div>
                         <div class="m-widget17__stats">
                             <div class="row">
-                                <div class="col-md-4 item">
-                                    <a href="{{route('prueba',3)}}">
+                                <div class="col-md-4 item" onclick="location.href ='{{route('prueba',3)}}'">
                                     <img src="https://instagram.fuio7-1.fna.fbcdn.net/vp/c21425c1429c4edfa843494bc5ceb51c/5BE1B23C/t51.2885-15/e35/36160242_1927613374196779_4998207313853546496_n.jpg" alt="" class="img-fluid rounded-circle">
                                     <div class="text-center"><b>Conducir</b><br><small>3 minutos</small>
                                         <br><br>
                                     </div>
-                                    </a>
                                 </div>
                             </div>
                         </div>
