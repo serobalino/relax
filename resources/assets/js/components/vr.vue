@@ -93,9 +93,16 @@
                     if(response.data.val){
                         this.video=response.data.url;
                         let vm = this;
-                        setTimeout(function() {
-                            vm.cargando=2;
-                        }, 4000);
+                        axios({
+                          method:'GET',
+                          url:vm.video,
+                          responseType:'stream'
+                        }).then(function(response) {
+                          //response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+                          vm.cargando=2;
+                        });
+                        //setTimeout(function() {
+                        //}, 4000);
                     }else{
                         this.cargando=3;
                     }
