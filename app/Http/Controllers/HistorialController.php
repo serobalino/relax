@@ -42,8 +42,8 @@ class HistorialController extends Controller
             $historia->id_ec    =   $datos->scene;
             $historia->id_us    =   Auth::user()->id;
             $historia->save();
-            $dir    =   Storage::disk('public')->exists($datos->scene.'.mp4');
-            if(!$dir){
+            $dir    =   Storage::disk('public')->url($datos->scene.'.mp4');
+            if(!Storage::disk('public')->exists($datos->scene.'.mp4')){
                 $escena =   rand (1,count(Storage::disk('public')->files()));
                 $dir    =   Storage::disk('public')->url("$escena.mp4");
             }
