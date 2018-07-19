@@ -93,25 +93,9 @@
                     if(response.data.val){
                         this.video=response.data.url;
                         let vm = this;
-                        let config = {
-                          onUploadProgress: progressEvent => {
-                            let percentCompleted = Math.floor((progressEvent.loaded * 100) / progressEvent.total);
-                            // do whatever you like with the percentage complete
-                            // maybe dispatch an action that will update a progress bar or something
-                          },
-                          responseType:'stream'
-                        };
-                        axios({
-                          method:'GET',
-                          url:vm.video,
-                          config
-                        }).then(function(response) {
-                          //response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
-                          console.log(response);
-                          vm.cargando=2;
-                        });
-                        //setTimeout(function() {
-                        //}, 4000);
+                        setTimeout(function() {
+                            vm.cargando=2;
+                        }, 4000);
                     }else{
                         this.cargando=3;
                     }
